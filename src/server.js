@@ -11,8 +11,8 @@ const port = 3000;
 app.use(bodyParser.json());
 
 // The following three lines are requiring in my route files
-// app.use('/api/v1', require('./routes/apps.js')(express));
-// app.use('/api/v1', require('./routes/users.js')(express));
+app.use('/api/v1', require('./routes/guilds.js')(express));
+app.use('/api/v1', require('./routes/players.js')(express));
 app.use('/api/v1', require('./routes/api.js')(express));
 
 // Start the server

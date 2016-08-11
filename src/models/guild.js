@@ -1,19 +1,19 @@
-// // Makes an instance of db.js and sets it to variable db
+// Makes an instance of db.js and sets it to variable db
 const db = require('./db.js');
 
 // Exports the add function which references the sequelize create method.
 exports.add = (payload, err, success) => {
-  db.player.create(payload).then(success).catch(err);
+  db.guild.create(payload).then(success).catch(err);
 }
 
 // Exports the all function which references the sequelize findAll method
 exports.all = (err, success) => {
-  db.player.findAll().then(success).catch(err);
+  db.guild.findAll().then(success).catch(err);
 }
 
 // Exports the one funciton which references the sequelize find method
 exports.one = (payload, err, success) => {
-  db.player.find({
+  db.guild.find({
     where: {
       id: payload.id
     },
@@ -27,7 +27,7 @@ exports.one = (payload, err, success) => {
 
 // Exports remove which references the sequelize destroy method
 exports.remove = (payload, err, success) => {
-  db.player.destroy({
+  db.guild.destroy({
     where: {
       id: payload.id,
     }
@@ -37,7 +37,7 @@ exports.remove = (payload, err, success) => {
 // Exports updates which references the sequelize find method
 // then takes the existing Data and updates the attributes
 exports.update = (payload, err, success) => {
-    db.player.find({
+    db.guild.find({
       where: {
         id: payload.id,
       }
