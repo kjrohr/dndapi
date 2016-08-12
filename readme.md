@@ -23,6 +23,14 @@ mocha
 
 ```
 
+### DEBUG Usage
+
+``` javascript
+
+DEBUG=true node src/server.js
+
+```
+
 ## End Points
 
 ### POST /api/v1/players
