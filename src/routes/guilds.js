@@ -1,5 +1,5 @@
 const guild = require('../models/guild.js');
-
+const util = require('../../lib/util.js');
 // Starts the export for this file
 module.exports = (express) => {
   // Makes a new instance of express.Router() and assigns it to router.
@@ -13,6 +13,7 @@ module.exports = (express) => {
     }, (data) => {
       res.status(200).json(data);
     });
+
   });
 
   // Read All

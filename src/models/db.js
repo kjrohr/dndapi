@@ -1,6 +1,8 @@
 // Makes an instance of sequelize module, and sets it to the Sequelize variabele
 const Sequelize = require('sequelize');
 
+const util = require('../../lib/util');
+
 // This file requires the dotenv.config module and method
 require('dotenv').config();
 
@@ -55,6 +57,14 @@ guild.hasMany(player, {
 
 // Syncs up to the mysql database
 sequelize.sync();
+
+if (sequelize.sync()) {
+  util.debug('Database syncing', 'success');
+}
+else {
+  util.debug('Database syncing', 'failed');
+}
+
 
 // Exports sequelize as sequelize
 exports.sequelize = sequelize;

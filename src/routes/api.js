@@ -1,3 +1,4 @@
+const util = require('../../lib/util');
 // Starts the export for this file.
 module.exports = (express) => {
   // Makes an instance of express.Router() and assigns it to router
@@ -6,7 +7,7 @@ module.exports = (express) => {
   // /api/ route will return { hello: 'world'}
   router.get('/', (req,res) => {
     res.json({ hello: 'world',
-    description: 'Hey',
+
    });
   });
 
