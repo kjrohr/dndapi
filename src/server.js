@@ -3,6 +3,9 @@ const express = require('express');
 // Imports of a module body-parser.
 const bodyParser = require('body-parser');
 // Makes an instance of express called app.
+
+const util = require('../lib/util.js');
+
 const app = express();
 // Sets a constant of 3000 for the port we're working on.
 const port = 3000;
@@ -18,7 +21,7 @@ app.use('/api/v1', require('./routes/api.js')(express));
 // Start the server
 const server = app.listen(port, () => {
   // Says Server is running on port: 3000 on server start
-  console.log('Server is running on port: ', port);
+  util.debug('Server is running on port: ', port);
 });
 
 // Exports server out to what ever file may need it.
