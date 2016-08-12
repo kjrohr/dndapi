@@ -55,10 +55,6 @@ module.exports = (express) => {
     })
   });
 
-
-
-
-
 // Returns router to the file that would call it
   return router;
 };
