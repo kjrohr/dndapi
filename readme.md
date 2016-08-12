@@ -23,11 +23,38 @@ mocha
 
 ```
 
-### DEBUG Usage
+### Debug Usage
 
 ``` javascript
 
 DEBUG=true node src/server.js
+
+```
+
+#### Debug End Points
+
+##### src/server.js
+
+``` javascript
+
+====================================
+Server is running on port:
+====================================
+3000
+Thu Aug 11 2016 23:52:11 GMT-0400 (EDT)
+
+```
+
+##### src/models/db.js
+
+``` javascript
+
+====================================
+Database syncing
+====================================
+success
+Thu Aug 11 2016 23:52:11 GMT-0400 (EDT)
+
 
 ```
 
