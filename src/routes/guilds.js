@@ -1,49 +1,48 @@
-const guild = require('../models/guild.js');
-const util = require('../../lib/util.js');
+const guild = require('../models/guild');
 // Starts the export for this file
 module.exports = (express) => {
   // Makes a new instance of express.Router() and assigns it to router.
-  let router = express.Router();
+  const router = express.Router();
 
   // Read All
-  router.get('/guilds', (req,res) => {
-    console.log('finding all');
+  router.get('/guilds', (req, res) => {
     guild.all((err) => {
       res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);
     });
-
   });
 
   // Read All
-  router.get('/guilds/:id', (req,res) => {
+  router.get('/guilds/:id', (req, res) => {
+    // WARNING: Look at prior assignment to the answer for this.
     req.body.id = req.params.id;
     guild.one(req.body, (err) => {
       res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);
-    })
+    });
   });
 
   // Delete
-  router.delete('/guilds/:id', (req,res) => {
+  router.delete('/guilds/:id', (req, res) => {
+    // WARNING: Look at prior assignment to the answer for this.
     req.body.id = req.params.id;
     guild.remove(req.body, (err) => {
       res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);
-    })
+    });
   });
 
   // Create
-  router.post('/guilds', (req,res) => {
-    console.log('create guild hit');
+  router.post('/guilds', (req, res) => {
+    // WARNING: Look at prior assignment to the answer for this.
     guild.add(req.body, (err) => {
       res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);
-    })
+    });
   });
 
   // Read One
@@ -59,13 +58,14 @@ module.exports = (express) => {
   });
 
   // Update
-  router.post('/guilds/:id', (req,res) => {
+  router.post('/guilds/:id', (req, res) => {
+    // WARNING: Look at prior assignment to the answer for this.
     req.body.id = req.params.id;
     guild.update(req.body, (err) => {
       res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);
-    })
+    });
   });
 
 // Returns router to the file that would call it
