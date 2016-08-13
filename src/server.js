@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // Makes an instance of express called app.
 
-const util = require('../lib/util.js');
+const util = require('../lib/util');
 
 const app = express();
 // Sets a constant of 3000 for the port we're working on.
@@ -14,9 +14,9 @@ const port = 3000;
 app.use(bodyParser.json());
 
 // The following three lines are requiring in my route files
-app.use('/api/v1', require('./routes/guilds.js')(express));
-app.use('/api/v1', require('./routes/players.js')(express));
-app.use('/api/v1', require('./routes/api.js')(express));
+app.use('/api/v1', require('./routes/guilds')(express));
+app.use('/api/v1', require('./routes/players')(express));
+app.use('/api/v1', require('./routes/api')(express));
 
 // Start the server
 const server = app.listen(port, () => {
