@@ -21,7 +21,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
 });
 
 // Defines user table, with name column
-const player = sequelize.define('player',{
+const player = sequelize.define('player', {
   name: {
     type: Sequelize.STRING,
   },
@@ -36,7 +36,7 @@ const player = sequelize.define('player',{
   },
   level: {
     type: Sequelize.INTEGER,
-  }
+  },
 });
 
 // Defines app table, with name, description, and releaseDate columns
@@ -53,15 +53,14 @@ const guild = sequelize.define('guild', {
 // User has many app relationship
 guild.hasMany(player, {
   foreignKey: 'guildID',
-})
+});
 
 // Syncs up to the mysql database
 sequelize.sync();
 
 if (sequelize.sync()) {
   util.debug('Database syncing', 'success');
-}
-else {
+} else {
   util.debug('Database syncing', 'failed');
 }
 
