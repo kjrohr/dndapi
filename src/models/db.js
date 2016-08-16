@@ -50,9 +50,20 @@ const guild = sequelize.define('guild', {
 
 });
 
+const faction = sequelize.define('faction', {
+  name: {
+    type: Sequelize.STRING,
+  },
+});
+
+
 // User has many app relationship
 guild.hasMany(player, {
   foreignKey: 'guildID',
+});
+
+faction.hasMany(guild, {
+  foriegnKey: 'factionID',
 });
 
 // Syncs up to the mysql database
