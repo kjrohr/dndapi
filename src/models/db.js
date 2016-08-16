@@ -25,9 +25,6 @@ const player = sequelize.define('player', {
   name: {
     type: Sequelize.STRING,
   },
-  faction: {
-    type: Sequelize.STRING,
-  },
   race: {
     type: Sequelize.STRING,
   },
@@ -63,6 +60,10 @@ guild.hasMany(player, {
 });
 
 faction.hasMany(guild, {
+  foriegnKey: 'factionID',
+});
+
+faction.hasMany(player, {
   foriegnKey: 'factionID',
 });
 

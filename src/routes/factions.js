@@ -57,6 +57,16 @@ module.exports = (express) => {
     });
   });
 
+  router.get('/factions/:id/players', (req, res) => {
+    const factionData = { id: req.params.id };
+    faction.one(factionData, (err) => {
+      res.status(500).json(err);
+    }, (data) => {
+      // By putting .factions when you go to the specific route it will only show the factions.
+      res.status(200).json(data.players);
+    });
+  });
+
   // Update
   router.post('/factions/:id', (req, res) => {
     // WARNING: Look at prior assignment to the answer for this.
