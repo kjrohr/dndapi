@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 app.use('/api/v1', require('./routes/guilds')(express));
 app.use('/api/v1', require('./routes/players')(express));
 app.use('/api/v1', require('./routes/api')(express));
+app.use('/api/v1', require('./routes/factions')(express));
 
 // Start the server
 const server = app.listen(port, () => {

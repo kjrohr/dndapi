@@ -84,3 +84,5 @@ exports.player = player;
 
 // Exports app as app
 exports.guild = guild;
+
+exports.faction = faction;
