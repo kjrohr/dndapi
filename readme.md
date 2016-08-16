@@ -444,3 +444,75 @@ Delete a faction
 ```
 
 ### GET /api/v1/factions/:id/guilds
+Reads the guilds of a faction, and shows the players of those guilds
+
+``` javascript
+
+[
+  {
+    id: 1,
+    name: "Latency",
+    description: "Normal and Heroic Raiding",
+    createdAt: "2016-08-16T18:05:41.000Z",
+    updatedAt: "2016-08-16T18:05:56.000Z",
+    factionId: 1,
+    players: [
+      {
+        id: 1,
+        name: "Lyel",
+        race: "Forsaken",
+        class: "Priest",
+        level: 100,
+        createdAt: "2016-08-16T18:07:30.000Z",
+        updatedAt: "2016-08-16T18:07:30.000Z",
+        guildID: 1,
+        factionId: 1
+      },
+      {
+        id: 2,
+        name: "Hansgar",
+        race: "Orc",
+        class: "Warrior",
+        level: 100,
+        createdAt: "2016-08-16T18:08:00.000Z",
+        updatedAt: "2016-08-16T18:08:00.000Z",
+        guildID: 1,
+        factionId: 1
+      }
+    ]
+  }
+]
+
+```
+
+### GET /api/v1/factions/:id/players
+Reads the players of a faction
+
+``` javascript
+
+[
+  {
+    id: 1,
+    name: "Lyel",
+    race: "Forsaken",
+    class: "Priest",
+    level: 100,
+    createdAt: "2016-08-16T18:07:30.000Z",
+    updatedAt: "2016-08-16T18:07:30.000Z",
+    guildID: 1,
+    factionId: 1
+  },
+  {
+    id: 2,
+    name: "Hansgar",
+    race: "Orc",
+    class: "Warrior",
+    level: 100,
+    createdAt: "2016-08-16T18:08:00.000Z",
+    updatedAt: "2016-08-16T18:08:00.000Z",
+    guildID: 1,
+    factionId: 1
+  }
+]
+
+```
