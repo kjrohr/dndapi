@@ -317,3 +317,130 @@ Delete an guild
   1
 
 ```
+
+### POST /api/v1/factions
+Create a faction
+
+``` javascript
+
+{
+  name: "Alliance"
+}
+
+```
+
+### GET /api/v1/factions
+Reads all factions
+
+``` javascript
+
+[
+  {
+    id: 1,
+    name: "Horde",
+    createdAt: "2016-08-16T18:05:14.000Z",
+    updatedAt: "2016-08-16T18:05:14.000Z"
+  },
+  {
+    id: 2,
+    name: "Alliance",
+    createdAt: "2016-08-16T18:05:20.000Z",
+    updatedAt: "2016-08-16T18:05:20.000Z"
+  }
+]
+
+```
+
+### GET /api/v1/factions/:id
+Reads one faction by id
+
+``` javascript
+
+{
+  id: 1,
+  name: "Horde",
+  createdAt: "2016-08-16T18:05:14.000Z",
+  updatedAt: "2016-08-16T18:05:14.000Z",
+  guilds: [
+    {
+      id: 1,
+      name: "Latency",
+      description: "Normal and Heroic Raiding",
+      createdAt: "2016-08-16T18:05:41.000Z",
+      updatedAt: "2016-08-16T18:05:56.000Z",
+      factionId: 1,
+      players: [
+        {
+          id: 1,
+          name: "Lyel",
+          race: "Forsaken",
+          class: "Priest",
+          level: 100,
+          createdAt: "2016-08-16T18:07:30.000Z",
+          updatedAt: "2016-08-16T18:07:30.000Z",
+          guildID: 1,
+          factionId: 1
+        },
+        {
+          id: 2,
+          name: "Hansgar",
+          race: "Orc",
+          class: "Warrior",
+          level: 100,
+          createdAt: "2016-08-16T18:08:00.000Z",
+          updatedAt: "2016-08-16T18:08:00.000Z",
+          guildID: 1,
+          factionId: 1
+        }
+      ]
+    }
+  ],
+players: [
+  {
+    id: 1,
+    name: "Lyel",
+    race: "Forsaken",
+    class: "Priest",
+    level: 100,
+    createdAt: "2016-08-16T18:07:30.000Z",
+    updatedAt: "2016-08-16T18:07:30.000Z",
+    guildID: 1,
+    factionId: 1
+  },
+  {
+    id: 2,
+    name: "Hansgar",
+    race: "Orc",
+    class: "Warrior",
+    level: 100,
+    createdAt: "2016-08-16T18:08:00.000Z",
+    updatedAt: "2016-08-16T18:08:00.000Z",
+    guildID: 1,
+    factionId: 1
+  }
+  ]
+}
+
+```
+
+### POST /api/v1/factions/:id
+Update a factions
+
+``` javascript
+
+{
+  name: "The Horde"
+}
+
+```
+
+### DELETE /api/v1/factions/:id
+Delete a faction
+
+``` javascript
+
+1
+
+```
+
+### GET /api/v1/factions/:id/guilds
