@@ -1,4 +1,4 @@
-# Guilds and Players API
+# Factions, Guilds and Players API
 
 ## Developers
 ### Please run the following
@@ -70,7 +70,8 @@ Create a player
   race: "Forsaken",
   class: "Priest",
   level: 100,
-  guildID: 1
+  guildID: 1,
+  factionId: 1
 }
 
 ```
@@ -83,91 +84,47 @@ Read all players
 [
   {
     id: 1,
-    name: "Lyél",
-    faction: "Horde",
+    name: "Lyel",
     race: "Forsaken",
     class: "Priest",
     level: 100,
-    createdAt: "2016-08-11T23:24:19.000Z",
-    updatedAt: "2016-08-11T23:43:24.000Z",
-    guildID: 1
+    createdAt: "2016-08-16T18:07:30.000Z",
+    updatedAt: "2016-08-16T18:07:30.000Z",
+    guildID: 1,
+    factionId: 1
   },
   {
-    id: 2,  
+    id: 2,
     name: "Hansgar",
-    faction: "Horde",
     race: "Orc",
     class: "Warrior",
     level: 100,
-    createdAt: "2016-08-11T23:24:28.000Z",
-    updatedAt: "2016-08-11T23:24:28.000Z",
-    guildID: 1
+    createdAt: "2016-08-16T18:08:00.000Z",
+    updatedAt: "2016-08-16T18:08:00.000Z",
+    guildID: 1,
+    factionId: 1
   },
   {
     id: 3,
-    name: "Luxayne",
-    faction: "Horde",
-    race: "Blood Elf",
-    class: "Priest",
+    name: "Joker",
+    race: "Human",
+    class: "Death Knight",
     level: 100,
-    createdAt: "2016-08-11T23:24:37.000Z",
-    updatedAt: "2016-08-11T23:24:37.000Z",
-    guildID: 1
+    createdAt: "2016-08-16T18:08:17.000Z",
+    updatedAt: "2016-08-16T18:08:17.000Z",
+    guildID: 2,
+    factionId: 2
   },
   {
     id: 4,
-    name: "Hordespride",
-    faction: "Horde",
-    race: "Forsaken",
-    class: "Mage",
+    name: "Blaze",
+    race: "Dwarf",
+    class: "Shaman",
     level: 100,
-    createdAt: "2016-08-11T23:24:50.000Z",
-    updatedAt: "2016-08-11T23:24:50.000Z",
-    guildID: 1
-  },
-  {
-    id: 5,
-    name: "Joker",
-    faction: "Horde",
-    race: "Blood Elf",
-    class: "Death Knight",
-    level: 100,
-    createdAt: "2016-08-11T23:25:05.000Z",
-    updatedAt: "2016-08-11T23:25:05.000Z",
-    guildID: 1
-  },
-  {
-    id: 6,
-    name: "Franzok",
-    faction: "Horde",
-    race: "Orc",
-    class: "Warrior",
-    level: 100,
-    createdAt: "2016-08-11T23:25:20.000Z",
-    updatedAt: "2016-08-11T23:25:20.000Z",
-    guildID: 1  
-  },
-  {
-    id: 7,
-    name: "Ringohunt",
-    faction: "Horde",
-    race: "Orc",
-    class: "Hunter",
-    level: 100,
-    createdAt: "2016-08-11T23:25:34.000Z",
-    updatedAt: "2016-08-11T23:25:34.000Z",
-    guildID: 1
-  },  
-  {
-    id: 8,
-    name: "Starfalls",
-    faction: "Horde",
-    race: "Tauren",
-    class: "Druid",
-    level: 100,
-    createdAt: "2016-08-11T23:25:56.000Z",
-    updatedAt: "2016-08-11T23:25:56.000Z",
-    guildID: 2
+    createdAt: "2016-08-16T18:08:30.000Z",
+    updatedAt: "2016-08-16T18:08:30.000Z",
+    guildID: 2,
+    factionId: 2
   }
 ]
 
@@ -180,14 +137,14 @@ Read one player by id
 
 {
   id: 1,
-  name: "Lyél",
-  faction: "Horde",
+  name: "Lyel",
   race: "Forsaken",
   class: "Priest",
   level: 100,
-  createdAt: "2016-08-11T23:24:19.000Z",
-  updatedAt: "2016-08-11T23:43:24.000Z",
-  guildID: 1
+  createdAt: "2016-08-16T18:07:30.000Z",
+  updatedAt: "2016-08-16T18:07:30.000Z",
+  guildID: 1,
+  factionId: 1
 }
 
 ```
@@ -206,7 +163,8 @@ Update a player
   level: 100,
   createdAt: "2016-08-11T23:24:19.000Z",
   updatedAt: "2016-08-11T23:43:24.000Z",
-  guildID: 4
+  guildID: 4,
+  factionId, 2
 }
 
 ```
@@ -240,30 +198,18 @@ Read all guilds
   {
     id: 1,
     name: "Latency",
-    description: "PVE, Normal and Heroic Raiding",
-    createdAt: "2016-08-11T23:20:23.000Z",
-    updatedAt: "2016-08-11T23:20:23.000Z"
+    description: "Normal and Heroic Raiding",
+    createdAt: "2016-08-16T18:05:41.000Z",
+    updatedAt: "2016-08-16T18:05:56.000Z",
+    factionId: 1
   },
   {
     id: 2,
-    name: "Dead Paladin Society",
-    description: "Casual and Social",
-    createdAt: "2016-08-11T23:20:47.000Z",
-    updatedAt: "2016-08-11T23:20:47.000Z"
-  },
-  {
-    id: 3,
-    name: "Unbroken",
-    description: "Casual Raiding",
-    createdAt: "2016-08-11T23:21:05.000Z",
-    updatedAt: "2016-08-11T23:21:05.000Z"
-  },
-  {
-    id: 4,
     name: "Anemnesis",
-    description: "Raiding is your second job.",
-    createdAt: "2016-08-11T23:21:17.000Z",
-    updatedAt: "2016-08-11T23:21:17.000Z"
+    description: "Normal and Heroic Raiding",
+    createdAt: "2016-08-16T18:06:11.000Z",
+    updatedAt: "2016-08-16T18:06:11.000Z",
+    factionId: 2
   }
 ]
 
@@ -277,20 +223,32 @@ Read on guild by id
 {
   id: 1,
   name: "Latency",
-  description: "PVE, Normal and Heroic Raiding",
-  createdAt: "2016-08-11T23:20:23.000Z",
-  updatedAt: "2016-08-11T23:20:23.000Z",
+  description: "Normal and Heroic Raiding",
+  createdAt: "2016-08-16T18:05:41.000Z",
+  updatedAt: "2016-08-16T18:05:56.000Z",
+  factionId: 1,
   players: [
     {
       id: 1,
-      name: "Lyél",
-      faction: "Horde",
+      name: "Lyel",
       race: "Forsaken",
       class: "Priest",
       level: 100,
-      createdAt: "2016-08-11T23:24:19.000Z",
-      updatedAt: "2016-08-11T23:43:24.000Z",
-      guildID: 1
+      createdAt: "2016-08-16T18:07:30.000Z",
+      updatedAt: "2016-08-16T18:07:30.000Z",
+      guildID: 1,
+      factionId: 1
+    },
+    {
+      id: 2,
+      name: "Hansgar",
+      race: "Orc",
+      class: "Warrior",
+      level: 100,
+      createdAt: "2016-08-16T18:08:00.000Z",
+      updatedAt: "2016-08-16T18:08:00.000Z",
+      guildID: 1,
+      factionId: 1  
     }
   ]
 }
@@ -302,19 +260,38 @@ Show all the players for a specific guild
 
 ``` javascript
 
-[
-  {
-    id: 8,
-    name: "Starfalls",
-    faction: "Horde",
-    race: "Tauren",
-    class: "Druid",
-    level: 100,
-    createdAt: "2016-08-11T23:25:56.000Z",
-    updatedAt: "2016-08-11T23:25:56.000Z",
-    guildID: 2
-  }
-]
+{
+  id: 1,
+  name: "Latency",
+  description: "Normal and Heroic Raiding",
+  createdAt: "2016-08-16T18:05:41.000Z",
+  updatedAt: "2016-08-16T18:05:56.000Z",
+  factionId: 1,
+  players: [
+    {
+      id: 1,
+      name: "Lyel",
+      race: "Forsaken",
+      class: "Priest",
+      level: 100,
+      createdAt: "2016-08-16T18:07:30.000Z",
+      updatedAt: "2016-08-16T18:07:30.000Z",
+      guildID: 1,
+      factionId: 1
+    },
+    {
+      id: 2,
+      name: "Hansgar",
+      race: "Orc",
+      class: "Warrior",
+      level: 100,
+      createdAt: "2016-08-16T18:08:00.000Z",
+      updatedAt: "2016-08-16T18:08:00.000Z",
+      guildID: 1,
+      factionId: 1
+    }
+  ]
+}
 
 ```
 
@@ -327,9 +304,7 @@ Update an guild
   id: 3,
   name: "Unbroken",
   description: "Casual Raiding",
-  createdAt: "2016-08-11T23:21:05.000Z",
-  updatedAt: "2016-08-11T23:21:05.000Z",
-  players: [ ]
+  factionId: 1
 }
 
 ```
