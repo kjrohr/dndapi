@@ -6,7 +6,11 @@ const util = require('../../lib/util');
 // Exports the add function which references the sequelize create method.
 exports.add = (payload, err, success) => {
   db.player.create(payload).then(success).catch(err);
-  util.debug('Player Model - Add a Player', payload.name);
+  util.debug('Player Model - Add a Player', 'name: '
+  + payload.name + '\nrace: ' + payload.race + '\nclass: '
+  + payload.class + '\nlevel: '
+  + payload.level + '\nguild: ' + payload.guildID + '\nfaction: '
+  + payload.factionId);
 };
 
 // Exports the all function which references the sequelize findAll method
@@ -31,7 +35,8 @@ exports.one = (payload, err, success) => {
     // do debug
     util.debug('Player Model - Find a Player', 'id: ' + data.id + '\nname: ' + data.name
     + '\nrace: ' + data.race + '\nclass: '
-    + data.class + '\nlevel: ' + data.level + + '\nguild: ' + data.guildID + '\nfaction: ' + data.factionId);
+    + data.class + '\nlevel: ' + data.level + '\nguild: ' + data.guildID + '\nfaction: '
+    + data.factionId);
     success(data);
   }).catch(err);
 };
