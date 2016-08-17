@@ -6,7 +6,7 @@ const util = require('../../lib/util');
 // Exports the add function which references the sequelize create method.
 exports.add = (payload, err, success) => {
   db.faction.create(payload).then(success).catch(err);
-  util.debug('faction Model - Add a faction', payload.name);
+  util.debug('faction Model - Add a faction', 'name: ' + payload.name);
 };
 
 // Exports the all function which references the sequelize findAll method
@@ -26,8 +26,10 @@ exports.one = (payload, err, success) => {
       all: true,
       nested: true,
     }],
-  }).then(success).catch(err);
-  util.debug('faction Model - Find a faction', 'id: ' + payload.id);
+  }).then((data) => {
+    util.debug('Faction Model - Find a Faction', 'id: ' + data.id + '\nname: ' + data.name);
+    success(data);
+  }).catch(err);
 };
 
 // Exports remove which references the sequelize destroy method
@@ -36,8 +38,10 @@ exports.remove = (payload, err, success) => {
     where: {
       id: payload.id,
     },
-  }).then(success).catch(err);
-  util.debug('faction Model - Delete a faction', 'id: ' + payload.id);
+  }).then((data) => {
+    util.debug('faction Model - Delete a faction', 'Success?: ' + data);
+    success(data);
+  }).catch(err);
 };
 
 // Exports updates which references the sequelize find method
@@ -48,7 +52,12 @@ exports.update = (payload, err, success) => {
       id: payload.id,
     },
   }).then((existingData) => {
-    existingData.updateAttributes(payload).then(success).catch(err);
+    util.debug('Faction Model - Update a Faction - Old Data', 'id: ' + existingData.id
+    + '\nname: ' + existingData.name);
+    existingData.updateAttributes(payload).then((data) => {
+      util.debug('Faction Model - Update a Faction - New Data', 'id: ' + data.id
+      + '\nname: ' + data.name);
+      success(data);
+    }).catch(err);
   }).catch(err);
-  util.debug('faction Model - Update a faction', 'id: ' + payload.id);
 };
