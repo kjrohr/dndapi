@@ -18,9 +18,8 @@ module.exports = (express) => {
 
   // Read One
   router.get('/guilds/:id', (req, res) => {
-    // WARNING: Look at prior assignment to the answer for this.
-    req.body.id = req.params.id;
-    guild.one(req.body, (err) => {
+    const guildData = { id: req.params.id };
+    guild.one(guildData, (err) => {
       res.status(500).json(err);
       util.debug('ERROR - GET ONE - /api/v1/guilds/:id', err);
     }, (data) => {
@@ -32,9 +31,8 @@ module.exports = (express) => {
 
   // Delete
   router.delete('/guilds/:id', (req, res) => {
-    // WARNING: Look at prior assignment to the answer for this.
-    req.body.id = req.params.id;
-    guild.remove(req.body, (err) => {
+    const guildData = { id: req.params.id };
+    guild.remove(guildData, (err) => {
       res.status(500).json(err);
       util.debug('ERROR - DELETE - /api/v1/guilds/:id', err);
     }, (data) => {
@@ -45,7 +43,6 @@ module.exports = (express) => {
 
   // Create
   router.post('/guilds', (req, res) => {
-    // WARNING: Look at prior assignment to the answer for this.
     guild.add(req.body, (err) => {
       res.status(500).json(err);
       util.debug('ERROR - POST - /api/v1/guilds', err);
@@ -72,9 +69,9 @@ module.exports = (express) => {
 
   // Update
   router.post('/guilds/:id', (req, res) => {
-    // WARNING: Look at prior assignment to the answer for this.
-    req.body.id = req.params.id;
-    guild.update(req.body, (err) => {
+    const guildData = req.body;
+    guildData.id = req.params.id;
+    guild.update(guildData, (err) => {
       res.status(500).json(err);
       util.debug('ERROR - POST UPDATE - /api/v1/guilds/:id', err);
     }, (data) => {

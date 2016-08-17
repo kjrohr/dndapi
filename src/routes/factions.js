@@ -18,8 +18,8 @@ module.exports = (express) => {
   // Read One
   router.get('/factions/:id', (req, res) => {
     // WARNING: Look at prior assignment to the answer for this.
-    req.body.id = req.params.id;
-    faction.one(req.body, (err) => {
+    const factionData = { id: req.params.id };
+    faction.one(factionData, (err) => {
       res.status(500).json(err);
       util.debug('ERROR - GET ONE- /api/v1/factions/:id', err);
     }, (data) => {
@@ -32,8 +32,8 @@ module.exports = (express) => {
   // Delete
   router.delete('/factions/:id', (req, res) => {
     // WARNING: Look at prior assignment to the answer for this.
-    req.body.id = req.params.id;
-    faction.remove(req.body, (err) => {
+    const factionData = { id: req.params.id };
+    faction.remove(factionData, (err) => {
       res.status(500).json(err);
       util.debug('ERROR - DELETE ONE - /api/v1/factions/:id', err);
     }, (data) => {
@@ -85,8 +85,9 @@ module.exports = (express) => {
   // Update
   router.post('/factions/:id', (req, res) => {
     // WARNING: Look at prior assignment to the answer for this.
-    req.body.id = req.params.id;
-    faction.update(req.body, (err) => {
+    const factionData = { id: req.params.id };
+    factionData.id = req.params.id;
+    faction.update(factionData, (err) => {
       res.status(500).json(err);
       util.debug('ERROR - POST UPDATE FACTION - /api/v1/factions/:id', err);
     }, (data) => {
