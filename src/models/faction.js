@@ -1,6 +1,6 @@
 // Makes an instance of db.js and sets it to variable db
-// WARNING: Not having the .js after db broke it once, check again
 const db = require('./db');
+// Makes an instance of util.js and sets it to variable util
 const util = require('../../lib/util');
 
 // Exports the add function which references the sequelize create method.
@@ -27,6 +27,7 @@ exports.one = (payload, err, success) => {
       nested: true,
     }],
   }).then((data) => {
+    // If debug environmental variable exists then this line will run.
     util.debug('Faction Model - Find a Faction', 'id: ' + data.id + '\nname: ' + data.name);
     success(data);
   }).catch(err);
@@ -39,6 +40,7 @@ exports.remove = (payload, err, success) => {
       id: payload.id,
     },
   }).then((data) => {
+    // If debug environmental variable exists then this line will run.
     util.debug('faction Model - Delete a faction', 'Success?: ' + data);
     success(data);
   }).catch(err);
@@ -52,9 +54,11 @@ exports.update = (payload, err, success) => {
       id: payload.id,
     },
   }).then((existingData) => {
+    // If debug environmental variable exists then this line will run.
     util.debug('Faction Model - Update a Faction - Old Data', 'id: ' + existingData.id
     + '\nname: ' + existingData.name);
     existingData.updateAttributes(payload).then((data) => {
+      // If debug environmental variable exists then this line will run.
       util.debug('Faction Model - Update a Faction - New Data', 'id: ' + data.id
       + '\nname: ' + data.name);
       success(data);
