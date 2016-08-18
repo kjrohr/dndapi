@@ -1,6 +1,7 @@
 // Makes an instance of sequelize module, and sets it to the Sequelize variabele
 const Sequelize = require('sequelize');
 
+// Requires in the util.js file
 const util = require('../../lib/util');
 
 // This file requires the dotenv.config module and method
@@ -59,10 +60,12 @@ guild.hasMany(player, {
   foreignKey: 'guildID',
 });
 
+// Factions have many guilds
 faction.hasMany(guild, {
   foriegnKey: 'factionID',
 });
 
+// Factions have many players
 faction.hasMany(player, {
   foriegnKey: 'factionID',
 });
@@ -70,9 +73,11 @@ faction.hasMany(player, {
 // Syncs up to the mysql database
 sequelize.sync();
 
+// If it is synced run this debug
 if (sequelize.sync()) {
   util.debug('Database syncing', 'success');
 } else {
+  // Else run this debug
   util.debug('Database syncing', 'failed');
 }
 
@@ -86,4 +91,5 @@ exports.player = player;
 // Exports app as app
 exports.guild = guild;
 
+// Exports faction as faction
 exports.faction = faction;
