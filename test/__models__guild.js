@@ -26,7 +26,8 @@ describe('guild Model', () => {
   // Add a guild
   it('Adds a new guild', (done) => {
     // Generate a fake guild with a random name
-    const fakeGuild = { name: faker.name.firstName() };
+    const fakeGuild = { name: faker.name.firstName(),
+    description: faker.company.catchPhrase() };
 
     // Call guild model for adding
     Guild.add(fakeGuild,
@@ -39,6 +40,7 @@ describe('guild Model', () => {
 
         // guild.name returned from model should match guild.name supplied
         expect(guild.name).to.be.equal(fakeGuild.name);
+        expect(guild.description).to.be.equal(fakeGuild.description);
         done();
       }
     );
@@ -67,6 +69,7 @@ describe('guild Model', () => {
     const updateGuild = this.tempGuild;
     // Generate a new name for hte guild
     updateGuild.name = 'Not A Real Name';
+    updateGuild.description = 'Not a real description';
     // Call guild model for updating
     Guild.update(updateGuild,
       (err) => {
@@ -77,6 +80,7 @@ describe('guild Model', () => {
         this.tempGuild = guild;
         // guild.name returned from model should match guild.name supplied
         expect(guild.name).to.be.equal(updateGuild.name);
+        expect(guild.description).to.be.equal(updateGuild.description);
         done();
       }
     );
