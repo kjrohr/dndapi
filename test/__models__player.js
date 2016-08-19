@@ -1,95 +1,95 @@
 const expect = require('chai').expect;
 const request = require('supertest');
 const faker = require('faker');
-const Faction = require('../src/models/faction');
+const Player = require('../src/models/player');
 
-describe('faction Model', () => {
+describe('player Model', () => {
   let server;
-  let testFactions;
-  let tempFaction;
+  let testPlayers;
+  let tempPlayer;
 
 
-  // Test for all factions
+  // Test for all players
   it('Gets All', (done) => {
-    Faction.all(
+    Player.all(
       (err) => {
         throw new Error(err);
       },
-      (factions) => {
-        this.testFactions = factions;
-        expect(this.testFactions.length).to.be.above(0);
+      (players) => {
+        this.testPlayers = players;
+        expect(this.testPlayers.length).to.be.above(0);
         done();
       }
     );
   });
 
-  // Add a faction
-  it('Adds a new faction', (done) => {
-    // Generate a fake faction with a random title
-    const fakeFaction = { name: faker.name.firstName() };
+  // Add a player
+  it('Adds a new player', (done) => {
+    // Generate a fake player with a random title
+    const fakePlayer = { name: faker.name.firstName() };
 
-    // Call faction model for adding
-    Faction.add(fakeFaction,
+    // Call player model for adding
+    Player.add(fakePlayer,
       (err) => {
         throw new Error(err);
       },
-      (faction) => {
+      (player) => {
         // Save the returned data for later use in tests
-        this.tempFaction = faction.dataValues;
+        this.tempPlayer = player.dataValues;
 
-        // faction.title returned from model should match faction.title supplied
-        expect(Faction.title).to.be.equal(fakeFaction.title);
+        // player.title returned from model should match player.title supplied
+        expect(Player.title).to.be.equal(fakePlayer.title);
         done();
       }
     );
   });
 
-  // Find a faction
-  it('Find a faction', (done) => {
-    // Generate a fake faction with a random title
-    const targetFaction = this.testFactions[0];
-    // Call faction model for finding
-    Faction.one(targetFaction,
+  // Find a player
+  it('Find a player', (done) => {
+    // Generate a fake player with a random title
+    const targetPlayer = this.testPlayers[0];
+    // Call player model for finding
+    Player.one(targetPlayer,
       (err) => {
         throw new Error(err);
       },
-      (faction) => {
-        // faction.title returned from model should match faction.title supplied
-        expect(faction.name).to.be.equal(targetFaction.name);
+      (player) => {
+        // player.title returned from model should match player.title supplied
+        expect(player.name).to.be.equal(targetPlayer.name);
         done();
       }
     );
   });
 
-  // Update a faction
-  it('Update a faction', (done) => {
-    // Load in the info for an existing faction
-    const updateFaction = this.tempFaction;
-    // Generate a new title for hte faction
-    updateFaction.name = 'Not A Real Name';
-    // Call faction model for updating
-    Faction.update(updateFaction,
+  // Update a player
+  it('Update a player', (done) => {
+    // Load in the info for an existing player
+    const updatePlayer = this.tempPlayer;
+    // Generate a new title for hte player
+    updatePlayer.name = 'Not A Real Name';
+    // Call player model for updating
+    Player.update(updatePlayer,
       (err) => {
         throw new Error(err);
       },
-      (faction) => {
+      (player) => {
         // Save the returned data for later use in tests
-        this.tempFaction = faction;
-        // faction.title returned from model should match faction.title supplied
-        expect(faction.name).to.be.equal(updateFaction.name);
+        this.tempPlayer = player;
+        // player.title returned from model should match player.title supplied
+        expect(player.name).to.be.equal(updatePlayer.name);
         done();
       }
     );
   });
 
-  // Remove a faction
-  it('Remove a faction', (done) => {
-    // Load in the info for an existing faction
-    const removeFaction = this.tempFaction;
-    removeFaction.force = true;
+  // Remove a player
+  it('Remove a player', (done) => {
+    // Load in the info for an existing player
+    const removePlayer = this.tempPlayer;
+    removePlayer.force = true;
 
-    // Call faction model for updating
-    Faction.remove(removeFaction,
+    // Call player model for updating
+    Player.remove(removePlayer,
       (err) => {
         throw new Error(err);
       },
