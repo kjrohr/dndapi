@@ -31,13 +31,14 @@ describe('Player Routes', () => {
   });
 
   // Test for a single player
-  it('GET /api/v1/players/:id returns an player obj with id, title, description, and releaseDate properties', (done) => {
+  it('GET /api/v1/players/:id returns an player obj with id, title, description,'
+  + ' and releaseDate properties', (done) => {
     request(server)
       .get('/api/v1/players/' + this.player.id)
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect((res) => {
-        const player = res.body;
+        player = res.body;
         expect(player).to.have.property('id');
         expect(player).to.have.property('name');
       })

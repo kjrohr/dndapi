@@ -31,13 +31,14 @@ describe('Faction Routes', () => {
   });
 
   // Test for a single faction
-  it('GET /api/v1/factions/:id returns an faction obj with id, title, description, and releaseDate properties', (done) => {
+  it('GET /api/v1/factions/:id returns an faction obj with id, title, description,'
+  + ' and releaseDate properties', (done) => {
     request(server)
       .get('/api/v1/factions/' + this.faction.id)
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect((res) => {
-        const faction = res.body;
+        faction = res.body;
         expect(faction).to.have.property('id');
         expect(faction).to.have.property('name');
       })

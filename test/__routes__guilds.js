@@ -31,13 +31,14 @@ describe('Guild Routes', () => {
   });
 
   // Test for a single guild
-  it('GET /api/v1/guilds/:id returns an guild obj with id, title, description, and releaseDate properties', (done) => {
+  it('GET /api/v1/guilds/:id returns an guild obj with id, title, description, '
+  + 'and releaseDate properties', (done) => {
     request(server)
       .get('/api/v1/guilds/' + this.guild.id)
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect((res) => {
-        const guild = res.body;
+        guild = res.body;
         expect(guild).to.have.property('id');
         expect(guild).to.have.property('name');
       })
