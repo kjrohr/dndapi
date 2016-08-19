@@ -31,7 +31,7 @@ describe('Faction Routes', () => {
   });
 
   // Test for a single faction
-  it('GET /api/v1/factions/:id returns an faction obj with id, title, description,'
+  it('GET /api/v1/factions/:id returns an faction obj with id, name, description,'
   + ' and releaseDate properties', (done) => {
     request(server)
       .get('/api/v1/factions/' + this.faction.id)

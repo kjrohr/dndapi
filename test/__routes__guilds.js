@@ -31,7 +31,7 @@ describe('Guild Routes', () => {
   });
 
   // Test for a single guild
-  it('GET /api/v1/guilds/:id returns an guild obj with id, title, description, '
+  it('GET /api/v1/guilds/:id returns an guild obj with id, name, description, '
   + 'and releaseDate properties', (done) => {
     request(server)
       .get('/api/v1/guilds/' + this.guild.id)

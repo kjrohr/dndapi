@@ -25,7 +25,7 @@ describe('faction Model', () => {
 
   // Add a faction
   it('Adds a new faction', (done) => {
-    // Generate a fake faction with a random title
+    // Generate a fake faction with a random name
     const fakeFaction = { name: faker.name.firstName() };
 
     // Call faction model for adding
@@ -37,8 +37,8 @@ describe('faction Model', () => {
         // Save the returned data for later use in tests
         this.tempFaction = faction.dataValues;
 
-        // faction.title returned from model should match faction.title supplied
-        expect(Faction.title).to.be.equal(fakeFaction.title);
+        // faction.name returned from model should match faction.name supplied
+        expect(faction.name).to.be.equal(fakeFaction.name);
         done();
       }
     );
@@ -46,7 +46,7 @@ describe('faction Model', () => {
 
   // Find a faction
   it('Find a faction', (done) => {
-    // Generate a fake faction with a random title
+    // Generate a fake faction with a random name
     const targetFaction = this.testFactions[0];
     // Call faction model for finding
     Faction.one(targetFaction,
@@ -54,7 +54,7 @@ describe('faction Model', () => {
         throw new Error(err);
       },
       (faction) => {
-        // faction.title returned from model should match faction.title supplied
+        // faction.name returned from model should match faction.name supplied
         expect(faction.name).to.be.equal(targetFaction.name);
         done();
       }
@@ -65,7 +65,7 @@ describe('faction Model', () => {
   it('Update a faction', (done) => {
     // Load in the info for an existing faction
     const updateFaction = this.tempFaction;
-    // Generate a new title for hte faction
+    // Generate a new name for hte faction
     updateFaction.name = 'Not A Real Name';
     // Call faction model for updating
     Faction.update(updateFaction,
@@ -75,7 +75,7 @@ describe('faction Model', () => {
       (faction) => {
         // Save the returned data for later use in tests
         this.tempFaction = faction;
-        // faction.title returned from model should match faction.title supplied
+        // faction.name returned from model should match faction.name supplied
         expect(faction.name).to.be.equal(updateFaction.name);
         done();
       }

@@ -25,7 +25,7 @@ describe('player Model', () => {
 
   // Add a player
   it('Adds a new player', (done) => {
-    // Generate a fake player with a random title
+    // Generate a fake player with a random name
     const fakePlayer = { name: faker.name.firstName() };
 
     // Call player model for adding
@@ -37,8 +37,8 @@ describe('player Model', () => {
         // Save the returned data for later use in tests
         this.tempPlayer = player.dataValues;
 
-        // player.title returned from model should match player.title supplied
-        expect(Player.title).to.be.equal(fakePlayer.title);
+        // player.name returned from model should match player.name supplied
+        expect(player.name).to.be.equal(fakePlayer.name);
         done();
       }
     );
@@ -46,7 +46,7 @@ describe('player Model', () => {
 
   // Find a player
   it('Find a player', (done) => {
-    // Generate a fake player with a random title
+    // Generate a fake player with a random name
     const targetPlayer = this.testPlayers[0];
     // Call player model for finding
     Player.one(targetPlayer,
@@ -54,7 +54,7 @@ describe('player Model', () => {
         throw new Error(err);
       },
       (player) => {
-        // player.title returned from model should match player.title supplied
+        // player.name returned from model should match player.name supplied
         expect(player.name).to.be.equal(targetPlayer.name);
         done();
       }
@@ -65,7 +65,7 @@ describe('player Model', () => {
   it('Update a player', (done) => {
     // Load in the info for an existing player
     const updatePlayer = this.tempPlayer;
-    // Generate a new title for hte player
+    // Generate a new name for hte player
     updatePlayer.name = 'Not A Real Name';
     // Call player model for updating
     Player.update(updatePlayer,
@@ -75,7 +75,7 @@ describe('player Model', () => {
       (player) => {
         // Save the returned data for later use in tests
         this.tempPlayer = player;
-        // player.title returned from model should match player.title supplied
+        // player.name returned from model should match player.name supplied
         expect(player.name).to.be.equal(updatePlayer.name);
         done();
       }

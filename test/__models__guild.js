@@ -25,7 +25,7 @@ describe('guild Model', () => {
 
   // Add a guild
   it('Adds a new guild', (done) => {
-    // Generate a fake guild with a random title
+    // Generate a fake guild with a random name
     const fakeGuild = { name: faker.name.firstName() };
 
     // Call guild model for adding
@@ -37,8 +37,8 @@ describe('guild Model', () => {
         // Save the returned data for later use in tests
         this.tempGuild = guild.dataValues;
 
-        // guild.title returned from model should match guild.title supplied
-        expect(Guild.title).to.be.equal(fakeGuild.title);
+        // guild.name returned from model should match guild.name supplied
+        expect(guild.name).to.be.equal(fakeGuild.name);
         done();
       }
     );
@@ -46,7 +46,7 @@ describe('guild Model', () => {
 
   // Find a guild
   it('Find a guild', (done) => {
-    // Generate a fake guild with a random title
+    // Generate a fake guild with a random name
     const targetGuild = this.testGuilds[0];
     // Call guild model for finding
     Guild.one(targetGuild,
@@ -54,7 +54,7 @@ describe('guild Model', () => {
         throw new Error(err);
       },
       (guild) => {
-        // guild.title returned from model should match guild.title supplied
+        // guild.name returned from model should match guild.name supplied
         expect(guild.name).to.be.equal(targetGuild.name);
         done();
       }
@@ -65,7 +65,7 @@ describe('guild Model', () => {
   it('Update a guild', (done) => {
     // Load in the info for an existing guild
     const updateGuild = this.tempGuild;
-    // Generate a new title for hte guild
+    // Generate a new name for hte guild
     updateGuild.name = 'Not A Real Name';
     // Call guild model for updating
     Guild.update(updateGuild,
@@ -75,7 +75,7 @@ describe('guild Model', () => {
       (guild) => {
         // Save the returned data for later use in tests
         this.tempGuild = guild;
-        // guild.title returned from model should match guild.title supplied
+        // guild.name returned from model should match guild.name supplied
         expect(guild.name).to.be.equal(updateGuild.name);
         done();
       }
