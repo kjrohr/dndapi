@@ -34,7 +34,7 @@ describe('Guild Routes', () => {
   it('GET /api/v1/guilds/:id returns an guild obj with id, title, description, and releaseDate properties', (done) => {
     request(server)
       .get('/api/v1/guilds/' + this.guild.id)
-      .set('Accept', 'guildlication/json')
+      .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect((res) => {
         const guild = res.body;
