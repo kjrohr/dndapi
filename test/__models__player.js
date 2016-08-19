@@ -1,10 +1,10 @@
 const expect = require('chai').expect;
-const request = require('supertest');
+// const request = require('supertest');
 const faker = require('faker');
 const Player = require('../src/models/player');
 
 describe('player Model', () => {
-  let server;
+  // let server;
   let testPlayers;
   let tempPlayer;
 
