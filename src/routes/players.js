@@ -20,7 +20,6 @@ module.exports = (express) => {
 
   // Read One
   router.get('/players/:id', (req, res) => {
-    // WARNING: Look at prior assignment to the answer for this.
     const playerData = { id: req.params.id };
     player.one(playerData, (err) => {
       res.status(500).json(err);
@@ -37,7 +36,6 @@ module.exports = (express) => {
 
   // Delete
   router.delete('/players/:id', (req, res) => {
-    // WARNING: Look at prior assignment to the answer for this.
     const playerData = { id: req.params.id };
     player.remove(playerData, (err) => {
       res.status(500).json(err);
@@ -67,7 +65,6 @@ module.exports = (express) => {
 
   // Update
   router.post('/players/:id', (req, res) => {
-    // WARNING: Look at prior assignment to the answer for this.
     const playerData = req.body;
     playerData.id = req.params.id;
     player.update(playerData, (err) => {

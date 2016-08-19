@@ -48,6 +48,7 @@ const guild = sequelize.define('guild', {
 
 });
 
+// Defines faction table, with name column
 const faction = sequelize.define('faction', {
   name: {
     type: Sequelize.STRING,

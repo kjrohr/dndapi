@@ -20,7 +20,6 @@ module.exports = (express) => {
 
   // Read One
   router.get('/factions/:id', (req, res) => {
-    // WARNING: Look at prior assignment to the answer for this.
     const factionData = { id: req.params.id };
     faction.one(factionData, (err) => {
       res.status(500).json(err);
@@ -36,7 +35,6 @@ module.exports = (express) => {
 
   // Delete
   router.delete('/factions/:id', (req, res) => {
-    // WARNING: Look at prior assignment to the answer for this.
     const factionData = { id: req.params.id };
     faction.remove(factionData, (err) => {
       res.status(500).json(err);
@@ -51,7 +49,6 @@ module.exports = (express) => {
 
   // Create
   router.post('/factions', (req, res) => {
-    // WARNING: Look at prior assignment to the answer for this.
     faction.add(req.body, (err) => {
       res.status(500).json(err);
       // If debug environmental variable exists then this line will run.
@@ -81,6 +78,7 @@ module.exports = (express) => {
     });
   });
 
+  // Read all players of a faction
   router.get('/factions/:id/players', (req, res) => {
     const factionData = { id: req.params.id };
     faction.one(factionData, (err) => {
@@ -97,7 +95,6 @@ module.exports = (express) => {
 
   // Update
   router.post('/factions/:id', (req, res) => {
-    // WARNING: Look at prior assignment to the answer for this.
     const factionData = { id: req.params.id };
     factionData.id = req.params.id;
     faction.update(factionData, (err) => {
