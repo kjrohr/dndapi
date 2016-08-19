@@ -1,5 +1,4 @@
 const expect = require('chai').expect;
-// const request = require('supertest');
 const faker = require('faker');
 const Player = require('../src/models/player');
 
