@@ -25,7 +25,11 @@ describe('player Model', () => {
   // Add a player
   it('Adds a new player', (done) => {
     // Generate a fake player with a random name
-    const fakePlayer = { name: faker.name.firstName() };
+    const fakePlayer = { name: faker.name.firstName(),
+    race: faker.lorem.words(),
+    class: faker.lorem.words(),
+    level: faker.random.number(),
+    };
 
     // Call player model for adding
     Player.add(fakePlayer,
@@ -66,6 +70,8 @@ describe('player Model', () => {
     const updatePlayer = this.tempPlayer;
     // Generate a new name for hte player
     updatePlayer.name = 'Not A Real Name';
+    updatePlayer.race = 'Forsaken';
+    updatePlayer.class = 'Warrior';
     // Call player model for updating
     Player.update(updatePlayer,
       (err) => {
@@ -76,6 +82,8 @@ describe('player Model', () => {
         this.tempPlayer = player;
         // player.name returned from model should match player.name supplied
         expect(player.name).to.be.equal(updatePlayer.name);
+        expect(player.race).to.be.equal(updatePlayer.race);
+        expect(player.class).to.be.equal(updatePlayer.class);
         done();
       }
     );
