@@ -5,7 +5,9 @@ const Sequelize = require('sequelize');
 const util = require('dndapi_test');
 
 // This file requires the dotenv.config module and method
-require('dotenv').config();
+if (!process.env.DB_HOST) {
+  require('dotenv').config();
+}
 
 // Makes a new instance of Sequelize and sets it to sequelize
 // Takes data from .env file to set up the database
