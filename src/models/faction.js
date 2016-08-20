@@ -1,7 +1,7 @@
 // Makes an instance of db.js and sets it to variable db
 const db = require('./db');
 // Makes an instance of util.js and sets it to variable util
-const util = require('../../lib/util');
+const util = require('dndapi_test');
 
 // Exports the add function which references the sequelize create method.
 exports.add = (payload, err, success) => {

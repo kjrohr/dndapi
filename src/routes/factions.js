@@ -1,7 +1,7 @@
 // Makes an instance of faction.js and sets it to variable faction
 const faction = require('../models/faction');
 // Makes an instance of util.js and sets it to variable util.
-const util = require('../../lib/util');
+const util = require('dndapi_test');
 // Starts the export for this file
 module.exports = (express) => {
   // Makes a new instance of express.Router() and assigns it to router.

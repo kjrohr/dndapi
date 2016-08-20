@@ -2,7 +2,7 @@
 const Sequelize = require('sequelize');
 
 // Requires in the util.js file
-const util = require('../../lib/util');
+const util = require('dndapi_test');
 
 // This file requires the dotenv.config module and method
 require('dotenv').config();

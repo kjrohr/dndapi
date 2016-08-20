@@ -1,5 +1,5 @@
 const player = require('../models/player');
-const util = require('../../lib/util');
+const util = require('dndapi_test');
 // Starts the export for this file
 module.exports = (express) => {
   // Makes a new instance of express.Router() and assigns it to router.

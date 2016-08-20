@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // Makes an instance of express called app.
 
-const util = require('../lib/util');
+const util = require('dndapi_test');
 
 const app = express();
 // Sets a constant of 3000 for the port we're working on.
