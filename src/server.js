@@ -3,9 +3,6 @@ const express = require('express');
 // Imports of a module body-parser.
 const bodyParser = require('body-parser');
 // Makes an instance of express called app.
-
-const util = require('dndapi_test');
-
 const app = express();
 // Sets a constant of 3000 for the port we're working on.
 const port = 3000;
@@ -22,7 +19,6 @@ app.use('/api/v1', require('./routes/factions')(express));
 // Start the server
 const server = app.listen(port, () => {
   // Says Server is running on port: 3000 on server start
-  util.debug('Server is running on port: ', port);
 });
 
 // Exports server out to what ever file may need it.

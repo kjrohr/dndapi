@@ -1,5 +1,4 @@
 const guild = require('../models/guild');
-const util = require('dndapi_test');
 // Starts the export for this file
 module.exports = (express) => {
   // Makes a new instance of express.Router() and assigns it to router.
@@ -9,12 +8,8 @@ module.exports = (express) => {
   router.get('/guilds', (req, res) => {
     guild.all((err) => {
       res.status(500).json(err);
-      // If debug environmental variable exists then this line will run.
-      util.debug('ERROR - GET ALL - /api/v1/guilds', err);
     }, (data) => {
       res.status(200).json(data);
-      // If debug environmental variable exists then this line will run.
-      util.debug('SUCCESS - GET ALL - /api/v1/guilds', data);
     });
   });
 
@@ -23,13 +18,8 @@ module.exports = (express) => {
     const guildData = { id: req.params.id };
     guild.one(guildData, (err) => {
       res.status(500).json(err);
-      // If debug environmental variable exists then this line will run.
-      util.debug('ERROR - GET ONE - /api/v1/guilds/:id', err);
     }, (data) => {
       res.status(200).json(data);
-      // If debug environmental variable exists then this line will run.
-      util.debug('SUCCESS - GET ONE - /api/v1/guilds/:id', 'id: ' + data.id + '\nname: '
-      + data.name + '\ndescription: ' + data.description + '\nfaction: ' + data.factionId);
     });
   });
 
@@ -38,12 +28,8 @@ module.exports = (express) => {
     const guildData = { id: req.params.id };
     guild.remove(guildData, (err) => {
       res.status(500).json(err);
-      // If debug environmental variable exists then this line will run.
-      util.debug('ERROR - DELETE - /api/v1/guilds/:id', err);
     }, (data) => {
       res.status(200).json(data);
-      // If debug environmental variable exists then this line will run.
-      util.debug('SUCCESS - DELETE - /api/v1/guilds/:id', 'Success?: ' + data);
     });
   });
 
@@ -51,13 +37,8 @@ module.exports = (express) => {
   router.post('/guilds', (req, res) => {
     guild.add(req.body, (err) => {
       res.status(500).json(err);
-      // If debug environmental variable exists then this line will run.
-      util.debug('ERROR - POST - /api/v1/guilds', err);
     }, (data) => {
       res.status(200).json(data);
-      // If debug environmental variable exists then this line will run.
-      util.debug('SUCCESS - POST - /api/v1/guilds', 'id: ' + data.id + '\nname: '
-      + data.name + '\ndescription: ' + data.description + '\nfaction: ' + data.factionId);
     });
   });
 
@@ -67,13 +48,9 @@ module.exports = (express) => {
     const guildData = { id: req.params.id };
     guild.one(guildData, (err) => {
       res.status(500).json(err);
-      // If debug environmental variable exists then this line will run.
-      util.debug('ERROR - GET PLAYERS FROM GUILD - /api/guilds/:id/players', err);
     }, (data) => {
       // By putting .guilds when you go to the specific route it will only show the guilds.
       res.status(200).json(data.players);
-      // If debug environmental variable exists then this line will run.
-      util.debug('SUCCESS - GET PLAYERS FROM GUILD - /api/guilds/:id/players', data.players);
     });
   });
 
@@ -83,13 +60,8 @@ module.exports = (express) => {
     guildData.id = req.params.id;
     guild.update(guildData, (err) => {
       res.status(500).json(err);
-      // If debug environmental variable exists then this line will run.
-      util.debug('ERROR - POST UPDATE - /api/v1/guilds/:id', err);
     }, (data) => {
       res.status(200).json(data);
-      // If debug environmental variable exists then this line will run.
-      util.debug('SUCCESS - POST UPDATE - /api/v1/guilds/:id', 'id: ' + data.id + '\nname: '
-      + data.name + '\ndescription: ' + data.description + '\nfaction: ' + data.factionId);
     });
   });
 

@@ -1,9 +1,6 @@
 // Makes an instance of sequelize module, and sets it to the Sequelize variabele
 const Sequelize = require('sequelize');
 
-// Requires in the util.js file
-const util = require('dndapi_test');
-
 // This file requires the dotenv.config module and method
 if (!process.env.DB_HOST) {
   require('dotenv').config();
@@ -75,14 +72,6 @@ faction.hasMany(player, {
 
 // Syncs up to the mysql database
 sequelize.sync();
-
-// If it is synced run this debug
-if (sequelize.sync()) {
-  util.debug('Database syncing', 'success');
-} else {
-  // Else run this debug
-  util.debug('Database syncing', 'failed');
-}
 
 
 // Exports sequelize as sequelize
