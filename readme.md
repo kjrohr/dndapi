@@ -23,6 +23,66 @@ mocha
 
 ```
 
+## Deployment
+
+### Add a new remote
+
+``` javascript
+
+git add remote digitalOcean ssh://karl@162.243.77.113/var/repos/dndapi.git
+
+```
+
+### Check If You Have the remote of digitalOcean
+
+``` javascript
+
+git remote -v
+
+```
+
+### Push to the Server
+
+``` javascript
+
+git push digitalOcean master
+
+```
+It will prompt you for your password, please enter it.
+
+### Log in to Your Server
+
+``` javascript
+
+ssh karl@162.243.77.113
+
+```
+It will prompt for your password, please enter it.
+
+### Go to /var/www/html
+
+``` javascript
+
+cd /var/www/html
+
+```
+
+### List the Contents of the Directory
+
+``` javascript
+
+ll
+
+```
+
+### Make sure the server is running
+
+``` javascript
+
+pm2 start src/server.js
+
+```
+
 ## End Points
 
 ### POST /api/v1/players
