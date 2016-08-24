@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 
 // This file requires the dotenv.config module and method
 if (!process.env.DB_HOST) {
-  require('dotenv').config({ silent: true });
+  require('dotenv').config();
 }
 
 // Makes a new instance of Sequelize and sets it to sequelize
