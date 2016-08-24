@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 // Makes an instance of express called app.
 const app = express();
 // Sets a constant of 3000 for the port we're working on.
+// Heroku fix for failing to bind to port
 const port = process.env.PORT || 3000;
 
 // Tells app to use the bodyParser.json() method
