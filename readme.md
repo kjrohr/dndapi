@@ -29,7 +29,7 @@ mocha
 
 ``` javascript
 
-git add remote digitalOcean ssh://karl@162.243.77.113/var/repos/dndapi.git
+git add remote digitalOcean ssh://$USER@162.243.77.113/var/repos/dndapi.git
 
 ```
 
@@ -54,7 +54,7 @@ It will prompt you for your password, please enter it.
 
 ``` javascript
 
-ssh karl@162.243.77.113
+ssh $USER@162.243.77.113
 
 ```
 It will prompt for your password, please enter it.
