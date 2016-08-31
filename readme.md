@@ -25,7 +25,9 @@ mocha
 
 ## Deployment
 
-### Add a new remote
+### Deployment to VPS
+
+#### Add a new remote
 
 ``` javascript
 
@@ -33,7 +35,7 @@ git add remote digitalOcean ssh://$USER@162.243.77.113/var/repos/dndapi.git
 
 ```
 
-### Check If You Have the remote of digitalOcean
+#### Check If You Have the remote of digitalOcean
 
 ``` javascript
 
@@ -41,7 +43,7 @@ git remote -v
 
 ```
 
-### Push to the Server
+#### Push to the Server
 
 ``` javascript
 
@@ -50,7 +52,7 @@ git push digitalOcean master
 ```
 It will prompt you for your password, please enter it.
 
-### Log in to Your Server
+#### Log in to Your Server
 
 ``` javascript
 
@@ -59,7 +61,7 @@ ssh $USER@162.243.77.113
 ```
 It will prompt for your password, please enter it.
 
-### Go to /var/www/html
+#### Go to /var/www/html
 
 ``` javascript
 
@@ -67,7 +69,7 @@ cd /var/www/html
 
 ```
 
-### List the Contents of the Directory
+#### List the Contents of the Directory
 
 ``` javascript
 
@@ -75,11 +77,115 @@ ll
 
 ```
 
-### Make sure the server is running
+#### Make sure the server is running
 
 ``` javascript
 
 pm2 start src/server.js
+
+```
+
+### Deployment to Heroku
+
+Assuming that you have a pipe line from a heroku staging server, wait for a codeship unit test pass, to push to a heroku production server using a release branch.
+
+#### Deployment
+
+``` javascript
+
+git push github release
+
+```
+
+## Work Flow
+
+### Create Feature branch
+
+``` javascript
+
+git checkout -b featureBranch
+
+```
+
+### Work on the Project
+
+### Add All to Staging Area
+
+``` javascript
+
+git add -A
+
+```
+
+### Commit Changes
+
+``` javascript
+
+git commit -m "Something meaningful"
+
+```
+
+### Push Changes
+
+``` javascript
+
+git push github featureBranch
+
+```
+
+### Test Feature branch
+
+``` javascript
+
+mocha
+
+```
+
+### Checkout Master Branch
+
+``` javascript
+
+git checkout master
+
+```
+
+### Merge Feature Branch into Master branch
+
+``` javascript
+
+git merge featureBranch
+
+```
+
+### Push Master Branch
+
+``` javascript
+
+git push github master
+
+```
+
+### If Ready for Release Checkout Release Branch
+
+``` javascript
+
+git checkout release
+
+```
+
+### Merge Master Branch into Release Branch
+
+``` javascript
+
+git merge master
+
+```
+
+### Push Release Branch
+
+``` javascript
+
+git push github release
 
 ```
 
